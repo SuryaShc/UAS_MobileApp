@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         color:'white'
     },
     btn:{
-        width: 130,
+        width: WIDTH-60,
         height: 50,
         borderRadius : 20,
         justifyContent: 'center',
@@ -60,5 +60,6 @@ const styles = StyleSheet.create({
         color: '#1d3460',
         fontWeight: 'bold',
         fontSize: 18,
+        
     }
 })
