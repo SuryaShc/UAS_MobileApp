@@ -6,9 +6,7 @@ const SplashScreen = ({ navigation, user }) => {
         if (user == null) {
             navigation.replace('Boarding1');
         }
-        else {
-            navigation.replace('Home');
-        }
+        
     }, 3000)
     return (
         <View style={{ flex: 1, backgroundColor: '#1d3460' }}>

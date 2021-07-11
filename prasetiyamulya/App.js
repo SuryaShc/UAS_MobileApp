@@ -12,6 +12,7 @@ import OnBoarding3 from './screens/1_OnBoarding3';
 import LoginScreen from './screens/2_LoginScreen';
 import RegisterScreen from './screens/2_RegisterScreen';
 
+import DoneRegister from './screens/3_DoneRegisterScreen';
 import HomeScreen from './screens/3_HomeScreen';
 
 
@@ -38,6 +39,9 @@ export default App = () => {
       <Stack.Navigator>
         {user ?
           <>
+            <Stack.Screen name="DoneRegister" options={{ headerShown: false, }}>
+            {props => <DoneRegister {...props} user={user} />}
+            </Stack.Screen>
 
             <Stack.Screen name="Home" options={{ headerShown: false, }}>
               {props => <HomeScreen {...props} user={user} />}
@@ -53,6 +57,7 @@ export default App = () => {
 
             <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
             <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: false }}/>
+            
           </>
 
         }

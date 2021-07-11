@@ -4,7 +4,6 @@ import { Input } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Checkbox } from 'react-native-paper';
-import Firebase from '@react-native-firebase/app';
 import auth from '@react-native-firebase/auth';
 
 export default class LoginScreen extends React.Component {
@@ -21,20 +20,14 @@ export default class LoginScreen extends React.Component {
 
         auth()
             .signInWithEmailAndPassword(email, password)
-            .then(res => {
-                this.props.navigation.navigate('Home')
-            })
             .catch(error => {
                 if (error.code === 'auth/email-already-in-use') {
                     console.log('That email address is already in use!');
                 }
-
                 if (error.code === 'auth/invalid-email') {
                     console.log('That email address is invalid!');
                 }
-
                 console.error(error);
-            
             });
     }
     

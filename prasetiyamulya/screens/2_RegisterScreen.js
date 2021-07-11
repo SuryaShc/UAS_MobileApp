@@ -3,10 +3,10 @@ import { ActivityIndicator, Image, LogBox, StatusBar, Text, TextInput, View } fr
 
 import { Checkbox } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
-import Firebase from '@react-native-firebase/app';
+import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
 
@@ -19,22 +19,47 @@ export default class RegisScreen extends React.Component {
             email: '',
             password: '',
             username: '',
-            tahun: '',
-            angkatan: ''
+            prodi: '',
+            angkatan: '',
+            open: false,
+            value: null,
+            items: [{ label: 'Software Engineering', value: 'SE' }, { label: 'Product Design Engineering', value: 'PDE' }]
+
         }
+        this.setValue = this.setValue.bind(this);
     }
+    setOpen(open) {
+        this.setState({
+            open
+        });
+    }
+    setValue(callback) {
+        this.setState(state => ({
+            value: callback(state.value)
+        }));
+    }
+    setItems(callback) {
+        this.setState(state => ({
+            items: callback(state.items)
+        }));
+    }
+
 
     Register = async (email, password) => {
         const result = await auth().createUserWithEmailAndPassword(email, password)
         firestore().collection('users').doc(result.user.uid).set({
             name: this.state.username,
             email: result.user.email,
-            tahun: this.state.tahun,
+            prodi: this.state.prodi,
             angkatan: this.state.angkatan,
             uid: result.user.uid,
         })
+            .then(() => {
+                this.props.navigation.navigate(('DoneRegister'))
+            })
     }
     render() {
+        const { open, value, items } = this.state;
         return (
             <View style={{ flex: 1, backgroundColor: '#1d3460' }}>
                 <View style={{ alignItems: 'center' }} >
@@ -81,6 +106,15 @@ export default class RegisScreen extends React.Component {
                         <Icon name="lock-closed-outline" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
                     </View>
                     <View style={{}}>
+                        <DropDownPicker
+                            open={open}
+                            value={value}
+                            items={items}
+                            setOpen={this.setOpen}
+                            setValue={this.setValue}
+                            setItems={this.setItems}
+
+                        />
                         <TextInput
                             style={{ backgroundColor: 'white', width: 250 }}
                             placeholder="Prodi"
@@ -92,13 +126,13 @@ export default class RegisScreen extends React.Component {
                 </View>
 
                 {/* Angkatan */}
-                <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 5}}>
-                    <View style={{ backgroundColor: 'white', paddingHorizontal: 10, justifyContent: 'center', marginHorizontal: 5}}>
+                <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 5 }}>
+                    <View style={{ backgroundColor: 'white', paddingHorizontal: 10, justifyContent: 'center', marginHorizontal: 5 }}>
                         <Icon name="lock-closed-outline" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
                     </View>
                     <View style={{}}>
                         <TextInput
-                            style={{ backgroundColor: 'white', width: 250}}
+                            style={{ backgroundColor: 'white', width: 250 }}
                             placeholder="angkatan"
                             secureTextEntry={false}
                             value={this.state.angkatan}
@@ -129,7 +163,7 @@ export default class RegisScreen extends React.Component {
                 <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 10 }}>
 
                     <View>
-                    <Checkbox
+                        <Checkbox
                             color="white"
                             uncheckedColor="white"
                             status={this.state.checked ? 'checked' : 'unchecked'}

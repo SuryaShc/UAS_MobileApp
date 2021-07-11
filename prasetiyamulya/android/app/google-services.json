@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "999467958456",
-    "project_id": "prasetiyamulya-75686",
-    "storage_bucket": "prasetiyamulya-75686.appspot.com"
+    "project_number": "57690607755",
+    "project_id": "prasetiyamulya-c4391",
+    "storage_bucket": "prasetiyamulya-c4391.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:999467958456:android:b588caf65bd915ae29b44d",
+        "mobilesdk_app_id": "1:57690607755:android:7894a5f6dbcec5a418048e",
         "android_client_info": {
           "package_name": "com.prasetiyamulya"
         }
       },
       "oauth_client": [
         {
-          "client_id": "999467958456-ieghrkp4ls62p3hnq13rc9i2a3csuvb9.apps.googleusercontent.com",
+          "client_id": "57690607755-jbs35161tm1j3n995kd0n6sf97ti0p0h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBWefPTIaRq3SYNNe_JqFEab4NMDyekIvI"
+          "current_key": "AIzaSyBMxKVHcIzQiiT7TaNCNKY1LfFUIBCnmg8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "999467958456-ieghrkp4ls62p3hnq13rc9i2a3csuvb9.apps.googleusercontent.com",
+              "client_id": "57690607755-jbs35161tm1j3n995kd0n6sf97ti0p0h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

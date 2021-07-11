@@ -13,9 +13,10 @@ export default class HomeScreen extends React.Component {
     componentDidMount() {
         firestore().collection('users').doc(this.props.user.uid).get().then(Snapshot => {
             this.setState({ profile: Snapshot.data() })    
-             
+            console.log(this.state.profile)  
+            console.log("HomeScreen PING") 
+              
         })
-    console.log(this.state.profile)  
     } 
     
     cobaSignout = () => {
