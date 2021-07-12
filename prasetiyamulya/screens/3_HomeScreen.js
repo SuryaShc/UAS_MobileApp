@@ -45,12 +45,12 @@ export default class HomeScreen extends React.Component {
                         </TouchableOpacity>
                         <View style={{}}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                                <View style={{ width: '45%', borderColor: '#6290C8', borderWidth: 1 }}>
+                                <TouchableOpacity style={{ width: '45%', borderColor: '#6290C8', borderWidth: 1 }} onPress={()=>navigation.navigate('Course')}>
                                     <Image style={{ width: '100%', height: 30 }} source={require('./assets/img/lms_box.png')} />
                                     <Text style={styles.matkul}>Software Design and Construction
                                         Stanley Makalew, M.Sc.
                                     </Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={{ width: '45%', borderColor: '#6290C8', borderWidth: 1 }}>
                                     <Image style={{ width: '100%', height: 30 }} source={require('./assets/img/lms_box.png')} />
                                     <Text style={styles.matkul}>Lab.Software Design and Construction
