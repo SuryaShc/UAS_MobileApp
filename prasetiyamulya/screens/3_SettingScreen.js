@@ -69,7 +69,7 @@ export default class Settings extends React.Component {
                     </View>
 
                     <View style={{ paddingHorizontal: 20 }}>
-                        <View style={{ borderColor: '#1D3461', borderWidth: 4, marginTop: 170, padding: 20, height: 70, borderRadius: 30, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ borderColor: '#1D3461', borderWidth: 4, marginTop: 177, padding:20, height: 70, borderRadius: 30, justifyContent: 'space-between', flexDirection: 'row', alignItems:'center'}}>
                             <View>
                                 <TouchableOpacity onPress={() => { this.props.navigation.navigate('Home') }} >
                                     <Image style={{ width: 30, height: 30, opacity: 0.2 }} source={require('./assets/icons_navbar/home.png')} />

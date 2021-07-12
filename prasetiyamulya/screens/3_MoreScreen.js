@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, View, StyleSheet, FlatList, Pressable, Button, Image, TouchableOpacity } from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';
-
+import auth from '@react-native-firebase/auth';
 
 
 
@@ -16,10 +16,13 @@ export default class More extends React.Component {
     componentDidMount() {
         firestore().collection('users').doc(this.props.user.uid).get().then(Snapshot => {
             this.setState({ profile: Snapshot.data() })
-            
+
 
         })
     }
+
+
+
     render() {
         return (
             <View style={styles.default}>
@@ -32,68 +35,68 @@ export default class More extends React.Component {
                 <View style={styles.whitebox}>
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 25, height: '20%', alignContent: 'center' }}>
-                        <View style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center' }}>
+                        <TouchableOpacity style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center' }} onPress={() => { this.props.navigation.navigate('Calender') }} >
                             <Text style={{ fontSize: 20, fontWeight: '100', color: 'white', marginTop: 10 }}>Calender</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
                                 <Image style={{ width: 55, height: 55, marginRight: 20 }} source={require('./assets/icons_more/calender.png')} />
                                 <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>May</Text>
                             </View>
-                        </View>
-                        <View style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center', marginRight:10}}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center', marginRight: 10 }} onPress={() => { this.props.navigation.navigate('Career_Point') }} >
                             <Text style={{ fontSize: 20, fontWeight: '100', color: 'white', marginTop: 10 }}>Career Point</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
                                 <Image style={{ width: 55, height: 60, marginRight: 5 }} source={require('./assets/icons_more/career_point.png')} />
                                 <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>45/100</Text>
                             </View>
-                        </View>
+                        </TouchableOpacity>
 
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 30, height: '20%', alignContent: 'center' }}>
-                        <View style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center', justifyContent:'center' }}>
+                        <TouchableOpacity style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center', marginRight: 10 }} onPress={() => { this.props.navigation.navigate('Competition') }} >
                             <Text style={{ fontSize: 20, fontWeight: '100', color: 'white', marginTop: 10 }}>Competition</Text>
                             <Text style={{ fontSize: 20, fontWeight: '100', color: 'white' }}>Info</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
-                                <Image style={{ width: 40, height: 40, marginBottom:20 }} source={require('./assets/icons_more/competition.png')} />
-                                
+                                <Image style={{ width: 40, height: 40, marginBottom: 20 }} source={require('./assets/icons_more/competition.png')} />
+
                             </View>
-                        </View>
-                        <View style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center', marginRight:10 }}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center', marginRight: 10 }} onPress={() => { this.props.navigation.navigate('My_Result') }} >
                             <Text style={{ fontSize: 20, fontWeight: '100', color: 'white', marginTop: 20 }}>My Results</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 10 }}>
                                 <Image style={{ width: 55, height: 60, marginRight: 5 }} source={require('./assets/icons_more/my_results.png')} />
-                                <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginLeft:10 }}>4.00</Text>
+                                <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginLeft: 10 }}>4.00</Text>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 30, height: '20%', alignContent: 'center' }}>
-                        <View style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center', justifyContent:'center' }}>
-                            <Text style={{ fontSize: 20, fontWeight: '100', color: 'white', marginTop: 10, textAlign:'center'}}>Teaching Evaluation</Text>
+                        <TouchableOpacity style={{ width: '40%', borderColor: '#6290C8', borderWidth: 1, backgroundColor: '#6290C8', alignItems: 'center', marginRight: 10 }} onPress={() => { this.props.navigation.navigate('Teaching_Evaluation') }} >
+                            <Text style={{ fontSize: 20, fontWeight: '100', color: 'white', marginTop: 10, textAlign: 'center' }}>Teaching Evaluation</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
-                                <Image style={{ width: 40, height: 40, marginBottom:20 }} source={require('./assets/icons_more/teachingEvaluation.png')} />
-                                
+                                <Image style={{ width: 40, height: 40, marginBottom: 20 }} source={require('./assets/icons_more/teachingEvaluation.png')} />
+
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
-                    <View style={{ borderColor: '#1D3461', borderWidth: 4, marginTop: 75, padding:20, height: 70, borderRadius: 30, justifyContent: 'space-between', flexDirection: 'row', alignItems:'center'}}>
+                    <View style={{ borderColor: '#1D3461', borderWidth: 4, marginTop: 75, padding: 20, height: 70, borderRadius: 30, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
                         <View>
-                        <TouchableOpacity onPress={() => {this.props.navigation.navigate('Home')}} >
-                                <Image style={{ width: 30, height: 30,  opacity:0.2}} source={require('./assets/icons_navbar/home.png')} />
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Home') }} >
+                                <Image style={{ width: 30, height: 30, opacity: 0.2 }} source={require('./assets/icons_navbar/home.png')} />
                             </TouchableOpacity>
                         </View>
                         <View>
-                            <TouchableOpacity onPress={() => {this.props.navigation.navigate('Courses')}} >
-                                <Image style={{ width: 30, height: 30,  opacity:0.2}} source={require('./assets/icons_navbar/Courses.png')} />
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Courses') }} >
+                                <Image style={{ width: 30, height: 30, opacity: 0.2 }} source={require('./assets/icons_navbar/Courses.png')} />
                             </TouchableOpacity>
                         </View>
                         <View>
-                            <TouchableOpacity onPress={() => {this.props.navigation.navigate('More')}} >
-                                <Image style={{ width: 38, height: 30,  }} source={require('./assets/icons_navbar/more.png')} />
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('More') }} >
+                                <Image style={{ width: 38, height: 30, }} source={require('./assets/icons_navbar/more.png')} />
                             </TouchableOpacity>
                         </View>
                         <View>
-                            <TouchableOpacity onPress={() => {this.props.navigation.navigate('Settings')}} >
-                                <Image style={{ width: 30, height: 30,  opacity:0.2}} source={require('./assets/icons_navbar/settings.png')} />
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Settings') }} >
+                                <Image style={{ width: 30, height: 30, opacity: 0.2 }} source={require('./assets/icons_navbar/settings.png')} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
     info_user: {
         fontSize: 50,
         color: 'white',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
     whitebox: {
         paddingVertical: 10,

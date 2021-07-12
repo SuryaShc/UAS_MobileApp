@@ -21,7 +21,6 @@ export default class Info extends React.Component {
     render() {
         return (
             <View>
-
                 <View style={{ paddingBottom: 10, borderBottomWidth: 8, flexDirection: 'row', alignItems: 'center' }}>
                     <TouchableOpacity style={{ flexDirection: 'row', margin: 20 }} onPress={() => { this.props.navigation.navigate('Home') }} >
                         <Image style={{ width: 35, height: 30 }} source={require('./assets/img/back.png')} />

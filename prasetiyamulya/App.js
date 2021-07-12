@@ -20,12 +20,17 @@ import More from './screens/3_MoreScreen';
 import Settings from './screens/3_SettingScreen';
 
 import Notification from './screens/4_NotificationScreen';
-import Todays_Selection from './screens/4_Todays_Selection';
-import Info from './screens/4_Info';
-import Announcement from './screens/4_Announcement';
+import Todays_Selection from './screens/4_Todays_SelectionScreen';
+import Info from './screens/4_InfoScreen';
+import Announcement from './screens/4_AnnouncementScreen';
+
+import Competition from './screens/5_CompetitionScreen';
+import My_Result from './screens/5_My_ResultScreen';
+import Teaching_Evaluation from './screens/5_TeachingEvaluationScreen';
+import Calender from './screens/5_CalenderScreen';
+import Career_Point from './screens/5_CareerPointScreen';
 
 import Tabs from './navigation/tabs'
-
 const Stack = createStackNavigator();
 
 export default App = () => {
@@ -63,6 +68,7 @@ export default App = () => {
             <Stack.Screen name="Settings" options={{ headerShown: false, }}>
             {props => <Settings {...props} user={user} />}
             </Stack.Screen>
+
             {/* 4_Home Detail*/}
             <Stack.Screen name="Notification" options={{ headerShown: false, }}>
             {props => <Notification {...props} user={user} />}
@@ -75,6 +81,23 @@ export default App = () => {
             </Stack.Screen>
             <Stack.Screen name="Todays_Selection" options={{ headerShown: false, }}>
             {props => <Todays_Selection {...props} user={user} />}
+            </Stack.Screen>
+
+            {/* 5 other detail */}
+            <Stack.Screen name="Competition" options={{ headerShown: false, }}>
+            {props => <Competition {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="My_Result" options={{ headerShown: false, }}>
+            {props => <My_Result {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Teaching_Evaluation" options={{ headerShown: false, }}>
+            {props => <Teaching_Evaluation {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Calender" options={{ headerShown: false, }}>
+            {props => <Calender {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Career_Point" options={{ headerShown: false, }}>
+            {props => <Career_Point {...props} user={user} />}
             </Stack.Screen>
 
             
