@@ -22,7 +22,7 @@ export default class Course extends Component{
 
             <View style={{alignItems:'center',marginTop:10}}>
                 <TouchableOpacity 
-                    onPress={()=>navigation.navigate('Group')}
+                    onPress={()=>this.props.navigation.navigate('Group')}
                     style={{width:'60%',backgroundColor:'#1d3460',paddingVertical:10,borderRadius:10,alignItems:'center'}}>
                     <Text style={{color:'white'}}>Group</Text>
                 </TouchableOpacity>
