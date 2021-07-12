@@ -24,11 +24,22 @@ import Todays_Selection from './screens/4_Todays_SelectionScreen';
 import Info from './screens/4_InfoScreen';
 import Announcement from './screens/4_AnnouncementScreen';
 
+<<<<<<< HEAD
 import Competition from './screens/5_CompetitionScreen';
 import My_Result from './screens/5_My_ResultScreen';
 import Teaching_Evaluation from './screens/5_TeachingEvaluationScreen';
 import Calender from './screens/5_CalenderScreen';
 import Career_Point from './screens/5_CareerPointScreen';
+=======
+import Group from './screens/Group';
+import Attendance from './screens/Attendance';
+import RPS from './screens/RPS';
+import Classroom from './screens/Classroom';
+import Task from './screens/Task';
+import Course from './screens/Course';
+
+import Tabs from './navigation/tabs'
+>>>>>>> 3aaec431bdded8090fd7221879e3dc310ceebe39
 
 import Tabs from './navigation/tabs'
 const Stack = createStackNavigator();
@@ -116,7 +127,12 @@ export default App = () => {
             {/* 2_ User creation and authentication */}
             <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
             <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: false }}/>
-            
+            <Stack.Screen name="Course" component={Course} options={{headerShown: false }}/>
+            <Stack.Screen name="RPS" component={RPS} options={{headerShown: false }}/>
+            <Stack.Screen name="Task" component={Task} options={{headerShown: false }}/>
+            <Stack.Screen name="Attendance" component={Attendance} options={{headerShown: false }}/>
+            <Stack.Screen name="Classroom" component={Classroom} options={{headerShown: false }}/>
+            <Stack.Screen name="Group" component={Group} options={{headerShown: false }}/>
           </>
         }
 
