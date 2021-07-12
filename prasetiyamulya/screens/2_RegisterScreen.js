@@ -2,7 +2,11 @@ import React, { Component, useEffect, useState } from 'react';
 import { ActivityIndicator, Image, LogBox, StatusBar, Text, TextInput, View } from 'react-native';
 
 import { Checkbox } from 'react-native-paper';
+
 import Icon from 'react-native-vector-icons/Ionicons';
+import Icon1 from 'react-native-vector-icons/Feather'; 
+import Icon2 from 'react-native-vector-icons/Entypo'; 
+
 import DropDownPicker from 'react-native-dropdown-picker';
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -19,39 +23,16 @@ export default class RegisScreen extends React.Component {
             email: '',
             password: '',
             username: '',
-            prodi: '',
-            angkatan: '',
-            open: false,
-            value: null,
-            items: [{ label: 'Software Engineering', value: 'SE' }, { label: 'Product Design Engineering', value: 'PDE' }]
-
+            NIM: '',
         }
-        this.setValue = this.setValue.bind(this);
+        
     }
-    setOpen(open) {
-        this.setState({
-            open
-        });
-    }
-    setValue(callback) {
-        this.setState(state => ({
-            value: callback(state.value)
-        }));
-    }
-    setItems(callback) {
-        this.setState(state => ({
-            items: callback(state.items)
-        }));
-    }
-
-
     Register = async (email, password) => {
         const result = await auth().createUserWithEmailAndPassword(email, password)
         firestore().collection('users').doc(result.user.uid).set({
             name: this.state.username,
             email: result.user.email,
-            prodi: this.state.prodi,
-            angkatan: this.state.angkatan,
+            NIM: this.state.NIM,
             uid: result.user.uid,
         })
             .then(() => {
@@ -59,7 +40,6 @@ export default class RegisScreen extends React.Component {
             })
     }
     render() {
-        const { open, value, items } = this.state;
         return (
             <View style={{ flex: 1, backgroundColor: '#1d3460' }}>
                 <View style={{ alignItems: 'center' }} >
@@ -87,7 +67,7 @@ export default class RegisScreen extends React.Component {
                 {/* Email */}
                 <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 5 }}>
                     <View style={{ backgroundColor: 'white', paddingHorizontal: 10, justifyContent: 'center', marginHorizontal: 5 }}>
-                        <Icon name="person-outline" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
+                        <Icon1 name="mail" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
                     </View>
                     <View style={{}}>
                         <TextInput
@@ -100,43 +80,18 @@ export default class RegisScreen extends React.Component {
                     </View>
                 </View>
 
-                {/* Prodi */}
+                {/* NIM */}
                 <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 5 }}>
                     <View style={{ backgroundColor: 'white', paddingHorizontal: 10, justifyContent: 'center', marginHorizontal: 5 }}>
-                        <Icon name="lock-closed-outline" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
-                    </View>
-                    <View style={{}}>
-                        <DropDownPicker
-                            open={open}
-                            value={value}
-                            items={items}
-                            setOpen={this.setOpen}
-                            setValue={this.setValue}
-                            setItems={this.setItems}
-
-                        />
-                        <TextInput
-                            style={{ backgroundColor: 'white', width: 250 }}
-                            placeholder="Prodi"
-                            secureTextEntry={false}
-                            value={this.state.prodi}
-                            onChangeText={(text) => this.setState({ prodi: text })}
-                        />
-                    </View>
-                </View>
-
-                {/* Angkatan */}
-                <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 5 }}>
-                    <View style={{ backgroundColor: 'white', paddingHorizontal: 10, justifyContent: 'center', marginHorizontal: 5 }}>
-                        <Icon name="lock-closed-outline" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
+                        <Icon2 name="text" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
                     </View>
                     <View style={{}}>
                         <TextInput
                             style={{ backgroundColor: 'white', width: 250 }}
-                            placeholder="angkatan"
+                            placeholder="NIM"
                             secureTextEntry={false}
-                            value={this.state.angkatan}
-                            onChangeText={(text) => this.setState({ angkatan: text })}
+                            value={this.state.NIM}
+                            onChangeText={(text) => this.setState({ NIM: text })}
                         />
                     </View>
                 </View>
@@ -144,7 +99,7 @@ export default class RegisScreen extends React.Component {
                 {/* Password */}
                 <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 5 }}>
                     <View style={{ backgroundColor: 'white', paddingHorizontal: 10, justifyContent: 'center', marginHorizontal: 5, borderBottomLeftRadius: 10 }}>
-                        <Icon name="lock-closed-outline" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
+                        <Icon1 name="lock" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
                     </View>
                     <View style={{}}>
                         <TextInput
@@ -156,10 +111,6 @@ export default class RegisScreen extends React.Component {
                         />
                     </View>
                 </View>
-
-
-
-
                 <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 10 }}>
 
                     <View>

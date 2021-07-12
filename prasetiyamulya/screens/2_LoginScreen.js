@@ -1,10 +1,14 @@
-import React, { Component, useEffect } from 'react';
-import { ActivityIndicator, Image, LogBox, StatusBar, Text, TextInput, View } from 'react-native';
-import { Input } from 'react-native-elements';
+import React from 'react';
+import { Image,Text, TextInput, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { Checkbox } from 'react-native-paper';
+
 import auth from '@react-native-firebase/auth';
+
+import Icon from 'react-native-vector-icons/Ionicons';
+import Icon1 from 'react-native-vector-icons/Feather'; 
+import Icon2 from 'react-native-vector-icons/Entypo'; 
+
+import { Checkbox } from 'react-native-paper';
 
 export default class LoginScreen extends React.Component {
 
@@ -62,7 +66,7 @@ export default class LoginScreen extends React.Component {
                 <View style={{ flexDirection: 'row', marginHorizontal: 70, marginTop: 5 }}>
 
                     <View style={{ backgroundColor: 'white', paddingHorizontal: 10, justifyContent: 'center', marginHorizontal: 5, borderBottomLeftRadius: 10 }}>
-                        <Icon name="lock-closed-outline" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
+                        <Icon1 name="lock" size={30} color="#1d3460" style={{ backgroundColor: 'white' }} />
                     </View>
                     <View style={{}}>
                         <TextInput

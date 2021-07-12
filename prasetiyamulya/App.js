@@ -46,7 +46,6 @@ export default App = () => {
             <Stack.Screen name="Home" options={{ headerShown: false, }}>
               {props => <HomeScreen {...props} user={user} />}
             </Stack.Screen>
-
           </> :
 
           <>
@@ -54,7 +53,7 @@ export default App = () => {
             <Stack.Screen name="Boarding1" component={OnBoarding1} options={{headerShown: false}} />
             <Stack.Screen name="Boarding2" component={OnBoarding2} options={{headerShown: false}} />
             <Stack.Screen name="Boarding3" component={OnBoarding3} options={{headerShown: false}} />
-
+            
             <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
             <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: false }}/>
             
