@@ -16,8 +16,7 @@ export default class Settings extends React.Component {
     componentDidMount() {
         firestore().collection('users').doc(this.props.user.uid).get().then(Snapshot => {
             this.setState({ profile: Snapshot.data() })
-            console.log(this.state.profile)
-            console.log("HomeScreen PING")
+            
 
         })
     }
@@ -39,32 +38,32 @@ export default class Settings extends React.Component {
                 </View>
                 <View style={styles.whitebox}>
                     <View style={{ flexDirection: 'row', marginLeft: 40 }}>
-                        <Image style={{ width: 60, height: 60, marginRight: 20 }} source={require('./assets/img/user_bk.png')} />
+                        <Image style={{ width: 60, height: 60, marginRight: 20 }} source={require('./assets/icons_settings/user_bk.png')} />
                         <View style={{ justifyContent: 'center' }}>
                             <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{this.state.profile.name}</Text>
                             <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{this.state.profile.NIM}</Text>
                         </View>
                     </View>
                     <View style={{ paddingLeft: 20, marginTop: 30, paddingBottom: 10, flexDirection: 'row', alignItems: 'center', borderBottomWidth: 3.5, borderColor: '#6290C8' }}>
-                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/img/account.png')} />
+                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/icons_settings/account.png')} />
                         <Text style={{ marginLeft: 5, fontSize: 20, fontWeight: 'bold' }}>Account</Text>
                     </View>
                     <View style={{ paddingLeft: 20, marginTop: 15, paddingBottom: 10, flexDirection: 'row', alignItems: 'center', borderBottomWidth: 3.5, borderColor: '#6290C8' }}>
-                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/img/language.png')} />
+                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/icons_settings/language.png')} />
                         <Text style={{ marginLeft: 5, fontSize: 20, fontWeight: 'bold' }}>Language</Text>
                     </View>
                     <View style={{ paddingLeft: 20, marginTop: 15, paddingBottom: 10, flexDirection: 'row', alignItems: 'center', borderBottomWidth: 3.5, borderColor: '#6290C8' }}>
-                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/img/date.png')} />
+                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/icons_settings/date.png')} />
                         <Text style={{ marginLeft: 5, fontSize: 20, fontWeight: 'bold' }}>Date & Time </Text>
                     </View>
                     <View style={{ paddingLeft: 20, marginTop: 15, paddingBottom: 10, flexDirection: 'row', alignItems: 'center', borderBottomWidth: 3.5, borderColor: '#6290C8' }}>
-                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/img/about.png')} />
+                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/icons_settings/about.png')} />
                         <Text style={{ marginLeft: 5, fontSize: 20, fontWeight: 'bold' }}>About </Text>
                     </View>
 
                     <View style= {{borderBottomWidth: 3.5, borderColor: '#6290C8' }}>
                         <TouchableOpacity style={{ paddingLeft: 20, marginTop: 15, paddingBottom: 10, flexDirection: 'row', alignItems: 'center',}}onPress={() => this.cobaSignout()} >
-                            <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/img/logout.png')} />
+                            <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('./assets/icons_settings/logout.png')} />
                             <Text style={{ marginLeft: 5, fontSize: 20, fontWeight: 'bold' }}>Log out</Text>
                         </TouchableOpacity>
                     </View>

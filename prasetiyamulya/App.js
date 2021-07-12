@@ -19,6 +19,11 @@ import Courses from './screens/3_CoursesScreen';
 import More from './screens/3_MoreScreen';
 import Settings from './screens/3_SettingScreen';
 
+import Notification from './screens/4_NotificationScreen';
+import Todays_Selection from './screens/4_Todays_Selection';
+import Info from './screens/4_Info';
+import Announcement from './screens/4_Announcement';
+
 import Tabs from './navigation/tabs'
 
 const Stack = createStackNavigator();
@@ -45,6 +50,7 @@ export default App = () => {
         
         {user ?
           <>
+            {/* 3_HomeScreen with navigator*/}
             <Stack.Screen name="Home" options={{ headerShown: false, }}>
               {props => <HomeScreen {...props} user={user} />}
             </Stack.Screen>
@@ -57,6 +63,20 @@ export default App = () => {
             <Stack.Screen name="Settings" options={{ headerShown: false, }}>
             {props => <Settings {...props} user={user} />}
             </Stack.Screen>
+            {/* 4_Home Detail*/}
+            <Stack.Screen name="Notification" options={{ headerShown: false, }}>
+            {props => <Notification {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Info" options={{ headerShown: false, }}>
+            {props => <Info {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Announcement" options={{ headerShown: false, }}>
+            {props => <Announcement {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Todays_Selection" options={{ headerShown: false, }}>
+            {props => <Todays_Selection {...props} user={user} />}
+            </Stack.Screen>
+
             
             <Stack.Screen name="DoneRegister" options={{ headerShown: false, }}>
             {props => <DoneRegister {...props} user={user} />}
@@ -64,11 +84,13 @@ export default App = () => {
           </> :
 
           <>
+            {/* 1_SPlashScreen */}
             <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Boarding1" component={OnBoarding1} options={{headerShown: false}} />
             <Stack.Screen name="Boarding2" component={OnBoarding2} options={{headerShown: false}} />
             <Stack.Screen name="Boarding3" component={OnBoarding3} options={{headerShown: false}} />
             
+            {/* 2_ User creation and authentication */}
             <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
             <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: false }}/>
             

@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, View, StyleSheet, FlatList, Pressable, Button, Image, TouchableOpacity } from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
+
 
 
 
@@ -16,16 +16,10 @@ export default class Courses extends React.Component {
     componentDidMount() {
         firestore().collection('users').doc(this.props.user.uid).get().then(Snapshot => {
             this.setState({ profile: Snapshot.data() })
-            console.log(this.state.profile)
-            console.log("HomeScreen PING")
+            
+            
 
         })
-    }
-
-    cobaSignout = () => {
-        auth()
-            .signOut()
-            .then(() => console.log('User signed out!'));
     }
 
     render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, View, StyleSheet, FlatList, Pressable, Button, Image, TouchableOpacity } from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
+
 
 
 
@@ -22,16 +22,12 @@ export default class HomeScreen extends React.Component {
         })
     }
 
-    cobaSignout = () => {
-        auth()
-            .signOut()
-            .then(() => console.log('User signed out!'));
-    }
-
     render() {
         return (
             <View style={styles.default}>
-                <Image style={{ width: 25, height: 25, marginTop: 10, marginRight: 40, alignSelf: 'flex-end' }} source={require('./assets/img/bell.png')} />
+                <TouchableOpacity style={{alignSelf: 'flex-end'}}onPress={() => { this.props.navigation.navigate('Notification') }} >
+                <Image style={{ width: 25, height: 25, marginTop: 10, marginRight: 40 }} source={require('./assets/img/bell.png')} />
+                </TouchableOpacity>
                 <View style={styles.outer}>
                     <View style={styles.icon}>
                         <Image style={{ width: 60, height: 60, marginRight: 10, }} source={require('./assets/img/user.png')} />
@@ -44,7 +40,9 @@ export default class HomeScreen extends React.Component {
                 </View>
                 <View style={styles.whitebox}>
                     <View style={{}}>
-                        <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold', marginBottom: 10 }}>Today's Selection</Text>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('Todays_Selection') }} >
+                        <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold', }}>Today's Selection</Text>
+                        </TouchableOpacity>
                         <View style={{}}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
                                 <View style={{ width: '45%', borderColor: '#6290C8', borderWidth: 1 }}>
@@ -63,7 +61,9 @@ export default class HomeScreen extends React.Component {
                         </View>
                     </View>
                     <View style={styles.today_annoucement}>
-                        <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold', marginBottom: 10 }}>Announcement</Text>
+                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('Announcement') }} >
+                        <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold'}}>Announcement</Text>
+                        </TouchableOpacity>
                         <View style={{}}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
                                 <View style={{ width: '45%', borderColor: '#6290C8', borderWidth: 1 }}>
@@ -80,7 +80,9 @@ export default class HomeScreen extends React.Component {
                         </View>
                     </View>
                     <View style={styles.today_info}>
-                        <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold', marginBottom: 10 }}>Info</Text>
+                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('Info') }} >
+                        <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold'}}>Info</Text>
+                        </TouchableOpacity>
                         <View style={{}}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
                                 <View style={{ width: '45%', borderColor: '#6290C8', borderWidth: 1 }}>
