@@ -1,12 +1,10 @@
 import React from 'react';
-import { Image,Text, TextInput, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Image,Text, TextInput, View, TouchableOpacity} from 'react-native';
 
 import auth from '@react-native-firebase/auth';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/Feather'; 
-import Icon2 from 'react-native-vector-icons/Entypo'; 
 
 import { Checkbox } from 'react-native-paper';
 
@@ -21,7 +19,6 @@ export default class LoginScreen extends React.Component {
     }
 
     Login = (email, password) => {
-
         auth()
             .signInWithEmailAndPassword(email, password)
             .catch(error => {

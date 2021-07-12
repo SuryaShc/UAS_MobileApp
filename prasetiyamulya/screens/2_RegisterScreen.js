@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from 'react';
-import { ActivityIndicator, Image, LogBox, StatusBar, Text, TextInput, View } from 'react-native';
+import React from 'react';
+import {Image,Text, TextInput, View, TouchableOpacity } from 'react-native';
 
 import { Checkbox } from 'react-native-paper';
 
@@ -7,9 +7,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/Feather'; 
 import Icon2 from 'react-native-vector-icons/Entypo'; 
 
-import DropDownPicker from 'react-native-dropdown-picker';
-
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 

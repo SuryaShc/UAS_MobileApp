@@ -1,8 +1,6 @@
 import React from 'react';
 import {View, Image, Text, Dimensions, StyleSheet, TouchableOpacity,} from 'react-native';
 
-const { width: WIDTH } = Dimensions.get('window')
-
 export default class OnBoarding3 extends React.Component{
     render() {
         return (

@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 
+
 import SplashScreen from './screens/1_SplashScreen';
 import OnBoarding1 from './screens/1_OnBoarding1';
 import OnBoarding2 from './screens/1_OnBoarding2';
@@ -14,7 +15,11 @@ import RegisterScreen from './screens/2_RegisterScreen';
 
 import DoneRegister from './screens/3_DoneRegisterScreen';
 import HomeScreen from './screens/3_HomeScreen';
+import Courses from './screens/3_CoursesScreen'; 
+import More from './screens/3_MoreScreen';
+import Settings from './screens/3_SettingScreen';
 
+import Tabs from './navigation/tabs'
 
 const Stack = createStackNavigator();
 
@@ -37,14 +42,24 @@ export default App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        
         {user ?
           <>
-            <Stack.Screen name="DoneRegister" options={{ headerShown: false, }}>
-            {props => <DoneRegister {...props} user={user} />}
-            </Stack.Screen>
-
             <Stack.Screen name="Home" options={{ headerShown: false, }}>
               {props => <HomeScreen {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Courses" options={{ headerShown: false, }}>
+            {props => <Courses {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="More" options={{ headerShown: false, }}>
+            {props => <More {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Settings" options={{ headerShown: false, }}>
+            {props => <Settings {...props} user={user} />}
+            </Stack.Screen>
+            
+            <Stack.Screen name="DoneRegister" options={{ headerShown: false, }}>
+            {props => <DoneRegister {...props} user={user} />}
             </Stack.Screen>
           </> :
 
@@ -58,7 +73,6 @@ export default App = () => {
             <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: false }}/>
             
           </>
-
         }
 
       </Stack.Navigator>

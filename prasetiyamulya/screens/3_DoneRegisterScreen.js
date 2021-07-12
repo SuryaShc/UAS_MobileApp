@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Image, Text, Dimensions, StyleSheet, TouchableOpacity,} from 'react-native';
+import {View, Image, Text, StyleSheet, TouchableOpacity,} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
-const { width: WIDTH } = Dimensions.get('window')
+
+
+
 
 export default class DoneRegister extends React.Component{
     constructor(props) {
@@ -28,7 +29,7 @@ export default class DoneRegister extends React.Component{
                 <Text style={styles.tulisan2}>Enjoy the experience!</Text>
 
                 <TouchableOpacity style={styles.btn} onPress={() => {this.props.navigation.navigate('Home')}}>
-                    <Text style={styles.text}>Login</Text>
+                    <Text style={styles.text}>Continue</Text>
                 </TouchableOpacity>
             </View>
         );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Image, StatusBar, Text, Touchable, View } from 'react-native';
+import { ActivityIndicator, Image, StatusBar,View } from 'react-native';
 
 const SplashScreen = ({ navigation, user }) => {
     setTimeout(() => {
